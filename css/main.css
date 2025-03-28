@@ -891,7 +891,7 @@ canvas {
     top: 50%;
     width: 23px;
     height: 23px;
-    background-image: url('/draw_painting/img/insta.png'); /* 사용할 이미지 */
+    background-image: url('https://raw.githubusercontent.com/gangjo8638/draw_painting/refs/heads/main/img/insta.png'); /* 사용할 이미지 */
     background-size: contain;
     background-repeat: no-repeat;
     /*filter: invert(1); 색상 반전 */
@@ -904,7 +904,7 @@ canvas {
     top: 50%;
     width: 25px;
     height: 25px;
-    background-image: url('/img/github-mark.png'); /* 사용할 이미지 */
+    background-image: url('https://raw.githubusercontent.com/gangjo8638/draw_painting/refs/heads/main/img/github-mark.png'); /* 사용할 이미지 */
     background-size: contain;
     background-repeat: no-repeat;
     /*filter: invert(1); 색상 반전 */
@@ -942,7 +942,7 @@ canvas {
     top: 28%;
     width: 23px;
     height: 23px;
-    background-image: url('/img/insta.png'); /* 사용할 이미지 */
+    background-image: url('https://raw.githubusercontent.com/gangjo8638/draw_painting/refs/heads/main/img/insta.png'); /* 사용할 이미지 */
     background-size: contain;
     background-repeat: no-repeat;
     filter: invert(0.9); /*색상반전*/
@@ -955,7 +955,7 @@ canvas {
     top: 32%;
     width: 25px;
     height: 25px;
-    background-image: url('/img/github-mark.png'); /* 사용할 이미지 */
+    background-image: url('https://raw.githubusercontent.com/gangjo8638/draw_painting/refs/heads/main/img/github-mark.png'); /* 사용할 이미지 */
     background-size: contain;
     background-repeat: no-repeat;
     filter: invert(1); 
