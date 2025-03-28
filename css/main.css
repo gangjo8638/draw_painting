@@ -1285,6 +1285,11 @@ display: flex; 412pg
         font-size: 0.8rem;
         
     }
+    .image-container {
+        position: fixed;
+        bottom: -200vh;
+        
+    }
 }
 
 @media (max-width: 360px){
