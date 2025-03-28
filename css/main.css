@@ -983,7 +983,7 @@ section{
 /*이미지 +글자 등장*/
 .image-container {
     position: fixed;
-    bottom: -150vh;
+    bottom: -1000px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -1262,7 +1262,12 @@ display: flex; 412pg
         font-size: 1.2rem;
         
     }
+    /*이미지 +글자 등장*/
+    .image-container {
+    position: fixed;
+    bottom: -1200px;
     
+    }
 }
 
 @media (max-width: 510px){
