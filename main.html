@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <title>그림그린모음집</title>
+</head>
+
+<body>
+    <!-- 등장 씬 -->
+    <div class="loading-screen"><span>A</span><span>D</span><span>W</span><span>R</span></div>
+
+    <div class="noise"></div>
+    <canvas id="fireworkCanvas"></canvas>
+
+    <header id="header">
+        <div class="inner">
+            <a href="#" id="art_1" class="nanum-myeongjo-regular">그<span id="span_1">림</span><span
+                    id="span_2">그</span><span id="span_3">린</span><span id="span_4">모</span>음<span>집</span></a>
+            <div id="glow_1"></div>
+            <div id="circle_1"></div>
+
+            <div class="brush">
+                <div class="handle"></div>
+                <div class="metal"></div>
+                <div class="bristles"></div>
+            </div>
+
+
+            <h2 id="title_1">COLLECTION <br />OF <br />
+                <span id="title_2">PAINTINGS.</span>
+            </h2>
+            <a href="#" id="about_1" class="nanum-myeongjo-regular">About</a>
+
+            <a href="#" id="contact_1" class="nanum-myeongjo-regular">contact</a>
+
+            <div class="mouse-icon"></div>
+
+            <ul id="ul_link">
+                <li><a href="https://www.instagram.com/" target="_blank">ㅤ</a></li>
+                <li><a href="https://github.com/" target="_blank">ㅤ</a></li>
+            </ul>
+        </div>
+
+
+        <button id="menuBtn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div id="menuOverlay">
+            <div id="solid_1"></div>
+            <img src="" alt="">
+            <button id="closeBtn">✖</button>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <ul id="ul_link_2">
+                <li><a href="https://www.instagram.com/" target="_blank">instagram</a></li>
+                <li><a href="https://github.com/" target="_blank">github</a></li>
+            </ul>
+
+            <p id="logo" class="nanum-myeongjo-regular">@I want to eat chicken.</p>
+        </div>
+    </header>
+
+
+
+
+
+
+    <section class="section" id="animated-section">
+        <!-- 중앙에 표시될 텍스트 -->
+        <div class="text-container">
+            <h1 id="title">What Is This Site</h1>
+
+            <p id="content">
+                "일상의 순간을 그림으로 남기고, 사이트에 쌓아갑니다."<br>
+                "머릿속 상상을 손끝으로 그려내고, 이곳에 기록합니다."<br>
+                이곳은 "그림그린모음집"입니다.<br>
+            </p>
+
+        </div>
+        <div class="image-container">
+            <img src="/img/daybreakfrontline.png" alt="Image 1">
+            <img src="/img/odorico.png" alt="Image 2">
+            <img src="/img/tomorow.jpg" alt="Image 3">
+            <img src="/img/canwekissforever.png" alt="Image 4">
+            <img src="/img/odorico2.png" alt="Image 5">
+        </div>
+    </section>
+
+    <!-- ✨ section 밖으로 배치된 이미지들 -->
+
+
+
+
+
+    <section id="section-2">
+        <h2>Section 2 Content</h2>
+    </section>
+
+    <section id="video-section">
+        <div class="video-container">
+            <video id="background-video" src="/img/daybreak.mp4" autoplay muted></video>
+        </div>
+    </section>
+
+
+
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script><!---이미지 라이브러리리-->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script><!---이미지 라이브러리리-->
+    <script src="https://cdn.jsdelivr.net/npm/split-type"></script> <!-- 글자 분리 라이브러리 -->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
