@@ -1198,19 +1198,23 @@ display: flex; 412pg
 
 칼럼 423pg
 */
-
+@media (min-width: 769px) and (max-width: 1230px){
+    .image-container{
+        transform: translate(0px, 1230px);
+    }
+    
+}
 
 @media (max-width: 1180px){
     .nanum-myeongjo-regular{
         
     }
     .inner #title_1{
-        margin-top: 7%;
-        font-size: 70px;
+        font-size: 60px;
 
     }
     .inner #title_1 #title_2{
-        font-size: 80px;
+        font-size: 70px;
     }
     .inner #art_1{
         position: absolute;
@@ -1219,11 +1223,15 @@ display: flex; 412pg
         left: 9vw;
         font-size: 25px;
     }
-        #ul_link_2 {
-            position: absolute;
-            
-            bottom: 55%;
-            right: 30%;
+    #ul_link{
+        left: 6vw;
+        z-index: 3;
+    }
+    #ul_link_2 {
+        position: absolute;
+        
+        bottom: 55%;
+        right: 30%;
     }
 }
 
@@ -1231,7 +1239,7 @@ display: flex; 412pg
 /* 768px 이하에서 위치 조정 해제 */
 @media (max-width: 768px) {
     .inner #title_1{
-        margin-top: 30%;
+        margin-top: 60px;
         font-size: 60px;
 
     }
@@ -1268,11 +1276,22 @@ display: flex; 412pg
     bottom: -1200px;
     
     }
+    #menuBtn{
+        transform: scale(0.8);
+    }
+    #ul_link{
+        left: 5vw;
+        z-index: 3;
+    }
+    #closeBtn{
+        transform: scale(0.8);
+
+    }
 }
 
 @media (max-width: 510px){
     .inner #title_1{
-        margin-top: 50%;
+        margin-top: 130px;
         font-size: 40px;
 
     }
@@ -1294,11 +1313,45 @@ display: flex; 412pg
         
         
     }
+    #contact_1{
+        font-size: 14px;
+    }
+    #ul_link{
+        left: -2vw;
+        z-index: 3;
+    }
+}
+@media (max-width: 426px){
+    #menuOverlay nav ul li {
+    
+        width: 270px;
+        height: 78px;
+       
+    }
+    #menuOverlay nav ul li a{
+        margin-left: 13px;
+        font-size: 40px;
+    }
+    #ul_link_2 {
+        top: 55%;
+    }
+    #ul_link_2 li a {
+
+        font-size: 15px;
+    }
 }
 
-@media (max-width: 360px){
+
+@media (max-width: 376px){
+    .inne #title_1{
+
+    }
     .text-container #content {
         font-size: 0.7rem;
         
+    }
+    #menuOverlay nav ul li a{
+        margin-left: 18px;
+        font-size: 34px;
     }
 }
