@@ -187,7 +187,7 @@ function applyGsapAnimation() {
     } else if (window.innerWidth < 769) {
         yValue = -window.innerHeight * 3; // 모바일에서 조금 덜 올라가게
     } else if (window.innerHeight <= 425) {
-        yValue = -window.innerHeight * 3.2; // 기본값
+        yValue = -window.innerHeight * 3; // 기본값
     }
 
 
