@@ -177,18 +177,41 @@ ScrollTrigger.create({
     anticipatePin: 1,
 });
 
+
 // 2️⃣ 이미지가 순차적으로 올라오면서 화면 밖으로 사라짐
-gsap.to(".image-container img", {
-    y: -window.innerHeight * 2.5, // 완전히 화면 위로 나가도록 조정
-    duration: 2.5, /*자연스럽게 올라옴*/
-    stagger: 0.1, // 0.3초 '(이미지)간격'으로 하나씩 등장
-    scrollTrigger: {
-        trigger: "#animated-section",
-        start: "top top",
-        end: "top -150%", // 마지막 이미지까지 사라진 후 해제
-        scrub: 2, /*속도조절. 속도가 낮을수록 느려짐 true도 사용가능*/
+function applyGsapAnimation() {
+    let yValue = -window.innerHeight * 2.5;
+
+    if (window.innerWidth >= 769 && window.innerWidth <= 1230) {
+        yValue = -window.innerHeight * 3.1;
+    } else if (window.innerWidth < 769) {
+        yValue = -window.innerHeight * 3; // 모바일에서 조금 덜 올라가게
+    } else if (window.innerHeight <= 425) {
+        yValue = -window.innerHeight * 3.2; // 기본값
     }
+
+
+    gsap.to(".image-container img", {
+        y: yValue,
+        duration: 2.5,
+        stagger: 0.1,
+        scrollTrigger: {
+            trigger: "#animated-section",
+            start: "top top",
+            end: "top -150%",
+            scrub: 2,
+        }
+    });
+}
+
+applyGsapAnimation();
+
+window.addEventListener("resize", () => {
+    gsap.killTweensOf(".image-container img");
+    applyGsapAnimation();
 });
+
+
 
 // 3️⃣ 제목과 내용이 스크롤 시 한 글자씩 등장
 gsap.to(".text-container", { opacity: 1, duration: 0.5 });
