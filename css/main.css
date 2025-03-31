@@ -1055,7 +1055,6 @@ line-height: 180%;
 }
 /* 작은 화면에서 글자 크기 조정 */
 
-
 @media (max-width: 480px) {
     .text-container {
     }
@@ -1198,7 +1197,8 @@ display: flex; 412pg
 */
 @media (min-width: 769px) and (max-width: 1230px){
     .image-container{
-        transform: translate(0px, 1230px);
+        
+        transform: translate(-50%, 1230px);
     }
     
 }
@@ -1235,7 +1235,7 @@ display: flex; 412pg
 
 
 /* 768px 이하에서 위치 조정 해제 */
-@media (max-width: 769px) {
+@media (max-width: 768px) {
     .inner #title_1{
         margin-top: 60px;
         font-size: 60px;
