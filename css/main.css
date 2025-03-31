@@ -1197,8 +1197,7 @@ display: flex; 412pg
 */
 @media (min-width: 769px) and (max-width: 1230px){
     .image-container{
-        
-        transform: translate(-50%, 1230px);
+        bottom: -1230px;
     }
     
 }
