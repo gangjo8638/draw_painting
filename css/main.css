@@ -1199,7 +1199,9 @@ display: flex; 412pg
     .image-container{
         bottom: -1230px;
     }
-    
+    .image-container img{
+
+    }
 }
 
 @media (max-width: 1180px){
