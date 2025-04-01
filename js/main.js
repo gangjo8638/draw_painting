@@ -250,4 +250,42 @@ gsap.fromTo(
 );
 
 
-//줄바꿈
+
+
+const cursor = document.querySelector('.custom-cursor');
+let mouseX = 0, mouseY = 0;  // 실제 마우스 위치
+let cursorX = 0, cursorY = 0;  // 커서가 이동할 위치
+const delay = 0.3;  // 딜레이 정도 (0.1 ~ 0.3 추천)
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateCursor() {
+    cursorX += (mouseX - cursorX) * delay;
+    cursorY += (mouseY - cursorY) * delay;
+    cursor.style.transform = `translate(${cursorX - 15}px, ${cursorY - 15}px)`;
+    requestAnimationFrame(animateCursor);
+}
+animateCursor();  // 애니메이션 시작
+
+document.querySelectorAll('#about_1, img').forEach((element) => {
+    element.addEventListener('mouseenter', () => {
+        cursor.classList.add('active');
+    });
+
+    element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active');
+    });
+});
+
+document.querySelectorAll('.custom-top-button').forEach((element) => {
+    element.addEventListener('mouseenter', () => {
+        cursor.classList.add('active_2');
+    });
+
+    element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('active_2');
+    });
+});
