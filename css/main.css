@@ -342,6 +342,154 @@ body{
 }
 
 
+/*헤더솔리드*/
+#header_solid {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    z-index: 1;
+    width: 3px;
+    height: 8vh;
+    background-color: rgb(185, 185, 185);
+    overflow: hidden; /* 추가 */
+}
+
+#header_solid::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    background-color: #fff;
+    width: 3px;
+    height: 3vh;
+    animation: header_solid 1.6s infinite;
+}
+
+@keyframes header_solid {
+    0% {
+        transform: translateY(-3vh);
+    }
+    100% {
+        transform: translateY(11vh); /* 이 범위가 8vh를 넘지 않도록 설정 */
+    }
+}
+/*마우스*/
+ /* 기본 마우스 스타일 */
+ .custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    z-index: 100;
+}
+
+.custom-cursor.active {
+    background-color: #fff;
+    width: 70px;
+    height: 70px;
+    backdrop-filter: none;
+    border: none;
+    mix-blend-mode: difference; /* 배경색에 따라 자동 변경 */
+
+}
+.custom-cursor.active_2 {
+    background-color: #ffffff;
+    width: 70px;
+    height: 70px;
+    backdrop-filter: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: difference; /* 배경색에 따라 자동 변경 */
+
+}
+
+.custom-cursor.active_2::after {
+    position: absolute;
+    content: "let's go";
+    color: #000000;
+    font-weight: bold;
+    /* 텍스트를 중앙 정렬 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;  /* 텍스트 크기 조정 (필요 시) */
+    text-align: center;
+}
+
+/*top버튼*/
+/* top 버튼 */
+.custom-top-button {
+    position: fixed;
+    bottom: 7%;
+    right: 3%;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    border: 2px solid rgb(218, 215, 215);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    text-decoration: none;
+    color: rgb(218, 215, 215);
+    
+    /* 애니메이션 추가 */
+    animation: custom-top-button-ani 1.2s ease-out forwards;
+    animation-delay: 3.5s;
+    opacity: 0; /* 처음에는 숨김 */
+}
+
+.custom-top-button span {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+}
+
+@keyframes custom-top-button-ani {
+    from {
+        transform: translateY(10vh);
+        opacity: 0; /* 시작할 때 투명 */
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1; /* 나타남 */
+    }
+}
+.custom-top-button:hover span {
+    transform: translate(-50%, -85%) scale(2); /* 위로 3px 이동 */
+    transition: transform 0.3s ease-out;
+}
+
+ /* SVG를 감싸는 컨테이너 */
+ .circle-text {
+    position: absolute;
+    width: 16vh;
+    height: 16vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 회전 애니메이션 */
+@keyframes rotateText {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.circle-text svg {
+    width: 100%;
+    height: 100%;
+    animation: rotateText 8s linear infinite;
+}
+
 
 
 header .inner{
@@ -1202,6 +1350,18 @@ display: flex; 412pg
     .image-container img{
 
     }
+    .custom-top-button {
+        width: 8vh; /* 버튼 크기 줄이기 */
+        height: 8vh;
+        border-width: 1.5px; /* 테두리도 살짝 얇게 */
+        font-size: 1.8vh; /* 글자 크기 조정 */
+    }
+    .circle-text {
+        
+        width: 13vh;
+        height: 13vh;
+        
+    }
 }
 
 @media (max-width: 1180px){
@@ -1252,6 +1412,12 @@ display: flex; 412pg
     .image-container img:nth-of-type(5) {
         left: auto;
         right: auto;
+    }
+    .custom-top-button {
+        display: none;
+    }
+    .custom-cursor{
+        display: none;
     }
     #contact_1{
         position: absolute;
@@ -1329,7 +1495,13 @@ display: flex; 412pg
     }
     #menuOverlay nav ul li a{
         margin-left: 13px;
-        font-size: 40px;
+        font-size: 35px;
+    }
+    #menuOverlay nav ul li a::before {
+        
+        left: -22px;
+        
+        
     }
     #ul_link_2 {
         top: 55%;
@@ -1337,6 +1509,17 @@ display: flex; 412pg
     #ul_link_2 li a {
 
         font-size: 15px;
+    }
+    #ul_link li:nth-child(1) a::before {
+        width: 19px;
+    height: 19px;
+        filter: invert(1);
+        
+    }
+    #ul_link li:nth-child(2) a::before {
+        width: 19px;
+    height: 19px;
+        filter: invert(1);
     }
 }
 
@@ -1350,7 +1533,29 @@ display: flex; 412pg
         
     }
     #menuOverlay nav ul li a{
-        margin-left: 18px;
-        font-size: 34px;
+        margin-left: 28px;
+        font-size: 30px;
     }
+    #menuOverlay nav ul li a::before {
+        
+        left: -20px;
+        
+        
+    }
+    
+}
+
+@media (max-width: 326px){
+   
+    #menuOverlay nav ul li a{
+        margin-left: 40px;
+        font-size: 27px;
+    }
+    #menuOverlay nav ul li a::before {
+        
+        left: -17px;
+        
+        
+    }
+    
 }
