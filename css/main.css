@@ -7,9 +7,46 @@
     scroll-behavior: smooth;
 }
 body{
-    
+    background-color: rgb(42, 42, 42);
+
 }
 
+/* 로딩 화면 스타일 */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* 로딩 스피너 (회전하는 원) */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #ccc;
+    border-top-color: rgb(98, 146, 128);
+    /* 윗부분만 색을 다르게 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* 스피너 회전 애니메이션 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 /*첫 등장*/
 /* 등장 씬 스타일 */
@@ -373,6 +410,42 @@ body{
         transform: translateY(11vh); /* 이 범위가 8vh를 넘지 않도록 설정 */
     }
 }
+/*스크롤바*/
+ /* 좌측 하단 스크롤바 */
+ .progress-container {
+    position: fixed;
+    
+    top: 50%;
+    transform: translateY(-50%);
+    
+    left: 3vw;
+    width: 6px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    z-index: 3;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to top, rgb(116, 171, 151), rgb(42, 62, 55));
+    border-radius: 10px;
+    transition: height 0.2s ease-out;
+}
+
+/* 섹션 정보 표시 */
+.info {
+    position: absolute;
+    
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    z-index: 3;
+}
+
 /*마우스*/
  /* 기본 마우스 스타일 */
  .custom-cursor {
@@ -421,6 +494,44 @@ body{
     font-size: 16px;  /* 텍스트 크기 조정 (필요 시) */
     text-align: center;
 }
+.custom-cursor.active_3{
+    background: linear-gradient(to right, #7e57c2, #42a5f5);    width: 70px;
+    height: 70px;
+    backdrop-filter: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: difference; /* 배경색에 따라 자동 변경 */
+    
+}
+
+.custom-cursor.active_4 {
+    position: fixed;
+    width: 40px;
+    height: 80px;
+    background: #111;
+    border: 2px solid #444;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    transition: transform 0.1s linear, opacity 0.3s ease;
+    opacity: 0.7; /* 살짝 투명하게 */
+}
+
+.custom-cursor.active_4::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    margin-bottom: 6px;
+}
 
 /*top버튼*/
 /* top 버튼 */
@@ -439,7 +550,8 @@ body{
     background: transparent;
     text-decoration: none;
     color: rgb(218, 215, 215);
-    
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3),
+    -2px -2px 5px rgba(255,255,255,0.5);
     /* 애니메이션 추가 */
     animation: custom-top-button-ani 1.2s ease-out forwards;
     animation-delay: 3.5s;
@@ -1116,7 +1228,7 @@ canvas {
     font-size: 14px;
 }
 
-section{
+.section{
     position: relative;
     width: 100%;
     height: 100vh;
@@ -1127,6 +1239,155 @@ section{
 
 
 }
+
+
+/* 움직이는 텍스트 */
+.animated-title {
+    font-size: 5vw; /* 반응형 글씨 크기 */
+    font-weight: 800;
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    padding: 0px 0; /* 위아래 여백 */
+    overflow-x: hidden;
+    color: #c8c8c8;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  
+  .animated-title .track {
+    display: flex;
+    width: fit-content;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 40s linear infinite;
+  }
+  
+  .animated-title .content {
+    padding-right: 4rem; /* 텍스트 간 간격 */
+  }
+  
+  /* 애니메이션 키프레임 */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
+ 
+  /* 작은 화면용 폰트 조정 */
+  @media (max-width: 600px) {
+    .animated-title {
+      font-size: 10vw;
+    }
+  }
+
+  .animated-title2 {
+    font-size: 5vw; /* 반응형 글씨 크기 */
+    font-weight: 800;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    padding: 0px 0; /* 위아래 여백 */
+    overflow-x: hidden;
+    color: #c8c8c8;
+    opacity: 0.7;
+    z-index: 0;
+  }
+  
+  .animated-title2 .track2 {
+    display: flex;
+    width: fit-content;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee2 40s linear infinite;
+  }
+  
+  .animated-title2 .content2 {
+    padding-right: 4rem; /* 텍스트 간 간격 */
+  }
+  
+  /* 애니메이션 키프레임 */
+  @keyframes marquee2 {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0%); }
+  }
+  
+ 
+  /* 작은 화면용 폰트 조정 */
+  @media (max-width: 600px) {
+    .animated-title2 {
+      font-size: 10vw;
+    }
+  }
+/* 움직이는 텍스트 끝 */
+
+
+
+#section-2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(42, 42, 42);
+    overflow: hidden;
+  }
+  
+  /* 이미지 효과 */
+  .fade-img {
+    width: 250px;
+    opacity: 0;
+    transform: translateY(200px);
+    filter: blur(10px);
+    transition: all 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+    display: block;
+    margin-left: 230px;
+    border: 5px solid #fff;
+  }
+  
+  .fade-img.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+  
+  /* 소개 텍스트 효과 */
+  .intro-text {
+    width: 600px;
+    margin: 60px auto 0;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 2vw;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .intro-text p{
+    text-align: center;
+
+  }
+  .intro-text span {
+    opacity: 0.2;
+    color: transparent;
+    transition: all 0.4s ease;
+    background: linear-gradient(to top, #888, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  .intro-text span.show {
+    opacity: 1;
+    color: transparent;
+    background: linear-gradient(to top, #fff, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  
+  
+
 
 /*이미지 +글자 등장*/
 .image-container {
@@ -1167,7 +1428,6 @@ section{
     position: relative;
     right: 0%;
 }
-
 
 /* 중앙 텍스트 컨테이너 */
 .text-container {
@@ -1217,45 +1477,279 @@ line-height: 180%;
 
 
 
-
-
-
-
-/* 섹션 */
-
-
-#video-section {
+.section-3 {
     position: relative;
-    height: 100vh;
+    width: 100%;
+    height: 150vh;
+   /* display: flex;
+    align-items: center;
+    justify-content: center;*/
+    background-color: rgb(42, 42, 42);
+    overflow: hidden;
+}
+.section-3 #inner{
+    position: relative;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+}
+/*아코디언*/
+.accordion {
+    position: relative;
+    width: 100%;
+    margin: 0px auto;
+    font-family: sans-serif;
+  }
+  
+  .accordion-item {
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .accordion-item:last-of-type{
+    border-bottom: 1px solid #ddd;
+
+  }
+  .accordion-header {
+    padding: 55px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .accordion-header h3{
+    padding-left: 20px;
+    font-size: 1.5rem;
+    color: #fff ;
+    transition: color 0.2s;
+    
+  }
+  .accordion-header:hover h3{
+    color: #629280 ;
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: #fff ;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+  }
+  
+  .accordion-item.active .accordion-content {
+    max-height: 200px;
+    padding: 55px 20px;
+    
+  }
+  
+  .arrow-icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+    
+  }
+  .accordion-item.active .arrow-icon {
+    transform: rotate(180deg);
 }
 
-/* 초기 비디오 크기 (작게 중앙 배치) */
-.video-container {
+.section-3 #inner #description{
+    position: relative;
+    left: 0;
+    top: 13%;
+    width: 100%;
+    height: 33%;
+    border-radius: 30px;
+    background-color: #505050;
+    display: flex;
+  justify-content: center; /* 가로 중앙 */
+  align-items: center;     /* 세로 중앙 */
+    
+}
+.section-3 #inner #description p{
+    position: relative;
+    width: 90%;
+    height: 80%;
+    padding-left: 40px;
+    border-left: 7px solid rgb(98, 146, 128);
+    margin: 0 auto;
+    
+}
+.section-3 #inner #description p strong{
+  position: relative;
+
+    top: 20px;
+   color: rgb(98, 146, 128);
+   font-size: 1.5rem;
+}
+.section-3 #inner #description p span{
+    position: relative;
+   
+    top: 40px; 
+    color: #fff;
+    line-height: 2;
+}
+
+.section-3 #inner #description p #link{
+  position: relative;
+
+    top: 80px;
+   color: rgb(98, 146, 128);
+   font-size: 0.9rem;
+
+}
+#video-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+.tv-wrapper {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50vw;
-    height: 50vh;
-    transition: all 0.5s ease-in-out 0.2s; /* 1초 딜레이 후 트랜지션 시작 */
-    z-index: 1;
-    overflow: hidden;
+    transform: translate(50vw, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.1s ease-out;
 }
 
+.tv-body {
+    display: flex;
+    align-items: center;
+    background: #1a1a1a;
+    border: 12px solid #000;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+}
 
-/* 비디오 자체 */
+.tv-speaker {
+    width: 30px;
+    height: 300px;
+    background: repeating-linear-gradient(
+    to bottom,
+    #333,
+    #333 4px,
+    #222 4px,
+    #222 8px
+    );
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+.tv-screen {
+    width: 800px;
+    height: 450px;
+    background: #000;
+    border: 6px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
 #background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s ease-in-out;
-    transition-delay: 1s;
+    filter: brightness(0.95);
+    pointer-events: none;
 }
 
+.tv-stand {
+    width: 160px;
+    height: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.tv-stand-foot {
+    width: 100px;
+    height: 20px;
+    background: #222;
+    border-radius: 0 0 10px 10px;
+    margin-top: 4px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 850px) {
+    .tv-screen {
+    width: 80vw;
+    height: 50vw;
+    }
+    .tv-speaker {
+    display: none;
+    }
+}
+
+.section-4 {
+  width: 100%;
+  height: 120vh;
+  
+  background: #fff;
+}
+
+
+.section-4 h1{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 40px;
+    font-size: 3rem;
+}
+.section-4 #section-4-p{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-size: 1rem;
+}
+.swiper {
+    
+  width: 90%;
+  height: 400px;
+  margin-top: 60px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  bottom: 40px;
+  object-fit: cover;
+  transition: height 0.3s;
+  border-radius: 20px;
+}
+
+.swiper-slide img:hover,
+.swiper-slide.active-slide img {
+  height: 90%;
+}
+
+.swiper-slide .slide-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+     left: 50%;
+  transform: translateX(-50%);
+}
 
 
 footer{
@@ -1362,6 +1856,23 @@ display: flex; 412pg
         height: 13vh;
         
     }
+    .fade-img {
+        margin: 50px 100px;
+        
+      }
+    .intro-text {
+       position: relative;
+       right: 60px;
+       font-size: 1.2rem;
+      }
+      .section-3 #inner #description p #link{
+        position: relative;
+
+        top: 60px;
+        color: rgb(98, 146, 128);
+        font-size: 0.8rem;
+
+    }
 }
 
 @media (max-width: 1180px){
@@ -1392,6 +1903,13 @@ display: flex; 412pg
         bottom: 55%;
         right: 30%;
     }
+    .section-3 #inner #description p strong{
+        
+         font-size: 1.2rem;
+      }
+      .section-3 #inner #description p span{
+          font-size: 0.9rem;
+      }
 }
 
 
@@ -1417,6 +1935,9 @@ display: flex; 412pg
         display: none;
     }
     .custom-cursor{
+        display: none;
+    }
+    .custom-cursor.active_4{
         display: none;
     }
     #contact_1{
@@ -1452,6 +1973,33 @@ display: flex; 412pg
         transform: scale(0.8);
 
     }
+    .fade-img {
+        margin: 50px 50px;
+        
+      }
+    .intro-text {
+       position: absolute;
+       width: 55%;
+       bottom: 70px;
+        font-size: 0.7rem;
+      }
+      .section-3 #inner #description p strong{
+        
+        font-size: 1rem;
+     }
+     .section-3 #inner #description p span{
+         font-size: 0.7rem;
+     }
+      .section-3 #inner #description p #link{
+        position: relative;
+
+        top: 60px;
+        color: rgb(98, 146, 128);
+        font-size: 0.7rem;
+
+    }
+
+     
 }
 
 @media (max-width: 510px){
@@ -1484,7 +2032,20 @@ display: flex; 412pg
     #ul_link{
         left: -2vw;
         z-index: 3;
+    }.section-3 #inner #description p {
+        
+        padding-left: 24px;
+        
     }
+    .section-3 #inner #description p strong{
+        top: 10px;
+        font-size: 0.9rem;
+     }
+     .section-3 #inner #description p span{
+        top: 20px;
+         font-size: 0.6rem;
+     }
+    
 }
 @media (max-width: 426px){
     #menuOverlay nav ul li {
@@ -1521,6 +2082,28 @@ display: flex; 412pg
     height: 19px;
         filter: invert(1);
     }
+    .section-3 #inner #description p strong{
+       
+        font-size: 0.8rem;
+     }
+     .section-3 #inner #description p span{
+       
+         font-size: 0.5rem;
+     }
+     .section-3 #inner #description p #link{
+        position: relative;
+
+        top: 40px;
+        color: rgb(98, 146, 128);
+        font-size: 0.5rem;
+
+    }
+    .section-4 #section-4-p{
+        font-size: 0.8rem;
+    }
+    .swiper-slide .slide-title {
+        font-size: 13px;
+    }
 }
 
 
@@ -1537,10 +2120,22 @@ display: flex; 412pg
         font-size: 30px;
     }
     #menuOverlay nav ul li a::before {
-        
         left: -20px;
-        
-        
+
+    }
+    .section-3 #inner #description p strong{
+      top: 5px;
+    }
+     .section-3 #inner #description p span{
+       top: 15px;
+     }
+     .section-3 #inner #description p #link{
+        position: relative;
+
+        top: 20px;
+        color: rgb(98, 146, 128);
+        font-size: 0.5rem;
+
     }
     
 }
