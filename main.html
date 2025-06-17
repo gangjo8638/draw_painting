@@ -10,13 +10,29 @@
 </head>
 
 <body>
+    <!-- 로딩 화면 -->
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- 등장 씬 -->
     <div class="loading-screen"><span>A</span><span>D</span><span>W</span><span>R</span></div>
 
+    <!--노이즈-->
     <div class="noise"></div>
+
     <canvas id="fireworkCanvas"></canvas>
 
+    <!--커스텀커서-->
     <div class="custom-cursor"></div>
+
+    <!--스크롤바-->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+
+    </div>
+    <!--스크롤바 숫자
+    <div class="info" id="sectionInfo">1</div>-->
 
     <a href="#" class="custom-top-button"><span>⬆</span>
         <div class="circle-text">
@@ -24,7 +40,7 @@
                 <defs>
                     <path id="circlePath" d="M 50,50 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"></path>
                 </defs>
-                <text fill="white" font-size="11.3">
+                <text fill="white" font-size="11.8">
                     <textPath href="#circlePath" startOffset="0%">
                         DRAW - PAINTING - ART - DRAW - PAINTING -
                     </textPath>
@@ -50,7 +66,7 @@
             <h2 id="title_1">COLLECTION <br />OF <br />
                 <span id="title_2">PAINTINGS.</span>
             </h2>
-            <a href="#" id="about_1" class="nanum-myeongjo-regular">About</a>
+            <a href="#" id="about_1" class="nanum-myeongjo-regular">scroll</a>
 
             <a href="#" id="contact_1" class="nanum-myeongjo-regular">contact</a>
 
@@ -87,6 +103,7 @@
 
             <p id="logo" class="nanum-myeongjo-regular">@I want to eat chicken.</p>
         </div>
+        <div id="header_solid"></div>
     </header>
 
 
@@ -117,28 +134,159 @@
 
     <!-- ✨ section 밖으로 배치된 이미지들 -->
 
+    <section class="section-3">
+        <div id="inner">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>첫 번째 질문</h3>
 
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p></p>
+                    </div>
+                </div>
 
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>두 번째 질문</h3>
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                        </svg>
 
+                    </div>
+                    <div class="accordion-content">
+                        <p>이건 두 번째 아코디언의 내용입니다.</p>
+                    </div>
+                </div>
 
-    <section id="section-2">
-        <h2>Section 2 Content</h2>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>세 번째 질문</h3>
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#FFFFFF">
+                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                        </svg>
+                    </div>
+                    <div class="accordion-content">
+                        <p>세 번째 내용도 여기 들어갑니다. 원하는 만큼 늘릴 수 있어요.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="description">
+                <p>
+                    <strong>만화는 텍스트와 그림을 조합하여 이야기를 전달하는 독창적인 표현 수단입니다.</strong><br>
+                    <span>
+                        캐릭터의 대사, 표정, 장면 전환을 통해 독자는 이야기의 흐름과 감정을 직관적으로 이해할 수 있습니다.<br>
+                        소설이나 영화와는 다른 속도감과 연출 방식으로, 짧은 시간 안에 깊은 몰입감을 제공합니다.<br>
+                        현대에 이르러 만화는 단순한 오락을 넘어 문화, 예술, 교육 등 다양한 분야에서 활용되고 있으며, 전 세계적으로 높은 평가를 받고 있습니다.<br>
+                    </span>
+                    <a href="#" id="link">
+                        >「만화라는 매체에 대하여」
+                    </a>
+
+                </p>
+
+            </div>
+        </div>
     </section>
 
     <section id="video-section">
-        <div class="video-container">
-            <video id="background-video" src="/draw_painting/img/daybreak.mp4" autoplay muted></video>
+        <div class="tv-wrapper" id="tvWrapper">
+            <div class="tv-body">
+                <div class="tv-speaker"></div>
+                <div class="tv-screen">
+                    <video id="background-video" src="/draw_painting/img/daybreak.mp4" autoplay muted></video>
+                </div>
+                <div class="tv-speaker"></div>
+            </div>
+            <div class="tv-stand"></div>
+            <div class="tv-stand-foot"></div>
         </div>
     </section>
 
 
 
-    <footer></footer>
+    <section id="section-2">
+        <div class="animated-title">
+            <div class="track">
+                <div class="content">&nbsp; DROW&nbsp;PAINTING&nbsp;COLLECTION&nbsp;DROW&nbsp;PAINTING COLLECTION&nbsp;
+                </div>
+                <div class="content">&nbsp; DROW&nbsp;PAINTING&nbsp;COLLECTION&nbsp;DROW&nbsp;PAINTING COLLECTION&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="animated-title2">
+            <div class="track2">
+                <div class="content2">&nbsp; DROW&nbsp;PAINTING&nbsp;COLLECTION&nbsp;DROW&nbsp;PAINTING COLLECTION&nbsp;
+                </div>
+                <div class="content2">&nbsp; DROW&nbsp;PAINTING&nbsp;COLLECTION&nbsp;DROW&nbsp;PAINTING COLLECTION&nbsp;
+                </div>
+            </div>
+        </div>
+        <img src="/draw_painting/img/canwekissforever.png" alt="누끼" class="fade-img">
+        <div class="intro-text">
+            <p>
+                섬세한 붓질과 대담한 색채의 조화, 익숙하면서도 낯선 이 감정들을 DROW의 화폭에서 느껴보세요.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-4">
+        <h1>PROJECT</h1>
+        <p id="section-4-p"> 이 사이트는 열정적인 한 사람의 손에서 탄생했습니다.<br>"어떻게 하면 더 멋질까?" 고민한 사람이 만든 사이트예요!
+
+        </p>
+        <div class="swiper mySwiper">
+
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/draw_painting/img/daybreakfrontline.png" alt="사진" />
+                    <p class="slide-title">데이브레이크 프론트라인</p>
+                </div>
+                <div class="swiper-slide"><img src="/draw_painting/img/kensin.png" alt="켄신" />
+                    <p class="slide-title">켄신</p>
+                </div>
+                <div class="swiper-slide"><img src="/draw_painting/img/odorico.png" alt="사진" />
+                    <p class="slide-title">무희</p>
+                </div>
+                <div class="swiper-slide"><img src="/draw_painting/img/odorico2.png" alt="사진" />
+                    <p class="slide-title">오도리코</p>
+                </div>
+                <div class="swiper-slide"><img src="/draw_painting/img/snRL.png" alt="사진" />
+                    <p class="slide-title">100</p>
+                </div>
+                <div class="swiper-slide"><img src="/draw_painting/img/tomorow.jpg" alt="사진" />
+                    <p class="slide-title">내일의 밤하늘 초계반</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--<footer></footer>-->
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script><!---이미지 라이브러리리-->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script><!---이미지 라이브러리리-->
     <script src="https://cdn.jsdelivr.net/npm/split-type"></script> <!-- 글자 분리 라이브러리 -->
-    
+
+    <!--무한루프 드래그 슬라이더-->
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
 
     <script src="/draw_painting/js/main.js"></script>
 </body>
